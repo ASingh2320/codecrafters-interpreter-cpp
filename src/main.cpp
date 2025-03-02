@@ -42,6 +42,25 @@ int main(int argc, char *argv[])
                 break;
             case ')':
                 std::cout << "RIGHT_PAREN ) null\n";
+                break;
+            case ',':
+                std::cout << "COMMA , null\n";
+                break;
+            case '.':
+                std::cout << "DOT . null\n";
+                break;
+            case '-':
+                std::cout << "MINUS , null\n";
+                break;
+            case '+':
+                std::cout << "PLUS + null\n";
+                break;
+            case ';':
+                std::cout << "SEMICOLON , null\n";
+                break;
+            case '*':
+                std::cout << "STAR * null\n";
+                break;
             }
         }
         std::cout << "EOF  null" << std::endl; // Placeholder, remove this line when implementing the scanner
