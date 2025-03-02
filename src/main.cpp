@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
                 std::cout << "DOT . null\n";
                 break;
             case '-':
-                std::cout << "MINUS , null\n";
+                std::cout << "MINUS - null\n";
                 break;
             case '+':
                 std::cout << "PLUS + null\n";
