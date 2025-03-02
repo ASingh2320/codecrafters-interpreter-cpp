@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
                 std::cout << "PLUS + null\n";
                 break;
             case ';':
-                std::cout << "SEMICOLON , null\n";
+                std::cout << "SEMICOLON ; null\n";
                 break;
             case '*':
                 std::cout << "STAR * null\n";
