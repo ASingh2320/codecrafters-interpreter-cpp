@@ -4,9 +4,10 @@
 #include <sstream>
 #include <string>
 
-std::string read_file_contents(const std::string& filename);
+std::string read_file_contents(const std::string &filename);
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     // Disable output buffering
     std::cout << std::unitbuf;
     std::cerr << std::unitbuf;
@@ -14,29 +15,39 @@ int main(int argc, char *argv[]) {
     // You can use print statements as follows for debugging, they'll be visible when running tests.
     // std::cerr << "Logs from your program will appear here!" << std::endl;
 
-    if (argc < 3) {
+    if (argc < 3)
+    {
         std::cerr << "Usage: ./your_program tokenize <filename>" << std::endl;
         return 1;
     }
 
     const std::string command = argv[1];
 
-    if (command == "tokenize") {
+    if (command == "tokenize")
+    {
         std::string file_contents = read_file_contents(argv[2]);
-        
-        for(char& token : file_contents){
-            switch(token){
-                case '(':
-                    std::cout << "LEFT_PAREN ( null\n";
-                    break;
-                case ')':
-                    std::cout << "RIGHT_PAREN ) null\n";
-                
+
+        for (char &token : file_contents)
+        {
+            switch (token)
+            {
+            case '(':
+                std::cout << "LEFT_PAREN ( null\n";
+                break;
+            case '{':
+                std::cout << "LEFT_BRACE { null\n";
+                break;
+            case '}':
+                std::cout << "RIGHT_BRACE } null\n";
+                break;
+            case ')':
+                std::cout << "RIGHT_PAREN ) null\n";
             }
         }
         std::cout << "EOF  null" << std::endl; // Placeholder, remove this line when implementing the scanner
-        
-    } else {
+    }
+    else
+    {
         std::cerr << "Unknown command: " << command << std::endl;
         return 1;
     }
@@ -44,9 +55,11 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-std::string read_file_contents(const std::string& filename) {
+std::string read_file_contents(const std::string &filename)
+{
     std::ifstream file(filename);
-    if (!file.is_open()) {
+    if (!file.is_open())
+    {
         std::cerr << "Error reading file: " << filename << std::endl;
         std::exit(1);
     }
