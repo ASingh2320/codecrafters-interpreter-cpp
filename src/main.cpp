@@ -29,10 +29,25 @@ int main(int argc, char *argv[])
     {
         std::string file_contents = read_file_contents(argv[2]);
 
+        bool saw_equal = false;
+
         for (char &token : file_contents)
         {
+            if (saw_equal)
+            {
+                saw_equal = false;
+                if (token == '=')
+                {
+                    std::cout << "EQUAL_EQUAL == null\n";
+                    continue;
+                }
+                std::cout << "EQUAL = null\n";
+            }
             switch (token)
             {
+            case '=':
+                saw_equal = true;
+                break;
             case '(':
                 std::cout << "LEFT_PAREN ( null\n";
                 break;
@@ -67,6 +82,10 @@ int main(int argc, char *argv[])
                 code = 65;
                 std::cerr << "[line 1] Error: Unexpected character: " << token << "\n";
             }
+        }
+        if (saw_equal)
+        {
+            std::cout << "EQUAL = null\n";
         }
         std::cout << "EOF  null" << std::endl; // Placeholder, remove this line when implementing the scanner
     }
