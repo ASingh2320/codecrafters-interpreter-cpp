@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
         std::string file_contents = read_file_contents(argv[2]);
 
         bool saw_equal = false;
+        bool saw_bang = false;
 
         for (char &token : file_contents)
         {
@@ -43,10 +44,23 @@ int main(int argc, char *argv[])
                 }
                 std::cout << "EQUAL = null\n";
             }
+            if (saw_bang)
+            {
+                saw_bang = false;
+                if (token == '=')
+                {
+                    std::cout << "BANG_EQUAL != null\n";
+                    continue;
+                }
+                std::cout << "BANG ! null\n";
+            }
             switch (token)
             {
             case '=':
                 saw_equal = true;
+                break;
+            case '!':
+                saw_bang = true;
                 break;
             case '(':
                 std::cout << "LEFT_PAREN ( null\n";
@@ -86,6 +100,10 @@ int main(int argc, char *argv[])
         if (saw_equal)
         {
             std::cout << "EQUAL = null\n";
+        }
+        if (saw_bang)
+        {
+            std::cout << "BANG ! null\n";
         }
         std::cout << "EOF  null" << std::endl; // Placeholder, remove this line when implementing the scanner
     }
