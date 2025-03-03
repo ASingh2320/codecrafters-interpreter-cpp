@@ -23,6 +23,8 @@ int main(int argc, char *argv[])
 
     const std::string command = argv[1];
 
+    int code = 0;
+
     if (command == "tokenize")
     {
         std::string file_contents = read_file_contents(argv[2]);
@@ -62,6 +64,7 @@ int main(int argc, char *argv[])
                 std::cout << "STAR * null\n";
                 break;
             default:
+                code = 65;
                 std::cerr << "[line 1] Error: Unexpected character: " << token << "\n";
             }
         }
@@ -73,7 +76,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    return 0;
+    return code;
 }
 
 std::string read_file_contents(const std::string &filename)
