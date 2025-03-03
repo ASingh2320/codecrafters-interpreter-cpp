@@ -62,10 +62,10 @@ int main(int argc, char *argv[])
                 std::cout << "STAR * null\n";
                 break;
             default:
-                std::cout << "[line 1] Error: Unexpected character: " << token << "\n";
+                std::cerr << "[line 1] Error: Unexpected character: " << token << "\n";
             }
         }
-        std::cerr << "EOF  null" << std::endl; // Placeholder, remove this line when implementing the scanner
+        std::cout << "EOF  null" << std::endl; // Placeholder, remove this line when implementing the scanner
     }
     else
     {
